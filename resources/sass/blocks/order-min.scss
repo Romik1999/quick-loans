@@ -1,0 +1,131 @@
+@import "../base/colors.scss";
+
+.order-min {
+  overflow: visible;
+  padding-top: 100px;
+  padding-bottom: 200px;
+
+  @media screen and (max-width: 1000px) {
+    padding-top: 60px;
+    padding-bottom: 120px;
+  }
+
+  &__wrapper {
+    display: flex;
+    position: relative;
+    background: linear-gradient(52.93deg, #E5A440 0%, #F6D191 43.8%, #E7AC4E 117.98%);
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    padding: 40px 118px;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 1440px) {
+      padding: 40px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 30px;
+    }
+
+    @media screen and (max-width: 769px) {
+      flex-direction: column;
+      padding-bottom: 0;
+    }
+
+    @media screen and (max-width: 575px) {
+      padding-top: 30px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 118px;
+    bottom: 0;
+    display: flex;
+    z-index: 1;
+
+    max-width: 415px;
+    width: 100%;
+
+    @media screen and (max-width: 1440px) {
+      right: 40px;
+      width: 30%;
+    }
+
+    @media screen and (max-width: 1000px) {
+      position: unset;
+      width: 40%;
+    }
+
+    @media screen and (max-width: 769px) {
+      margin-top: 30px;
+      margin-bottom: -40px;
+      width: 100%;
+      height: 250px;
+    }
+
+    @media screen and (max-width: 575px) {
+      height: auto;
+    }
+
+    & img {
+      width: 100%;
+      height: auto;
+
+      @media screen and (max-width: 769px) {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        object-position: bottom center;
+      }
+    }
+  }
+
+  &__info {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    padding-right: 415px;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 1440px) {
+      padding-right: 35%;
+    }
+
+    @media screen and (max-width: 1000px) {
+      padding-right: 0;
+    }
+
+    @media screen and (max-width: 769px) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    text-transform: none;
+    text-align: left;
+
+    @media screen and (max-width: 769px) {
+      text-align: center;
+    }
+  }
+
+  &__button {
+    max-width: 300px;
+
+    @media screen and (max-width: 769px) {
+      margin: 0 auto;
+    }
+
+    @media screen and (max-width: 575px) {
+      max-width: 100%;
+    }
+  }
+}
