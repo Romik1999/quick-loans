@@ -7,6 +7,7 @@ import ButtonModalReview from "./components/ButtonModalReview.vue";
 import ModalReviewsApp from "./components/ModalReview.vue";
 import ModalApp from "./components/Modal.vue";
 import ThanksApp from "./components/Thanks.vue";
+import FormCalcApp from "./components/FormCalc.vue";
 
 import 'vue-select/dist/vue-select.css';
 
@@ -18,6 +19,7 @@ const app = createApp({
         ModalApp,
         ModalReviewsApp,
         ThanksApp,
+        FormCalcApp
     },
 
     created: function(){

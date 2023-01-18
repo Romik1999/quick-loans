@@ -80,32 +80,7 @@
                             Сколько вам нужно?
                         </div>
                         <div class="hero-calc__form">
-                            <form class="calc-form">
-                                <div class="calc-form__range">
-                                    <div class="range">
-                                <span class="range__fill">
-                                     <span class="range__handler"></span>
-                                </span>
-                                        <input class="range__input" type="range" step="1000" min="1000" max="100000"
-                                               value="10000">
-                                    </div>
-                                </div>
-                                <div class="calc-form__bottom">
-                                    <div class="calc-form__field">
-                                        <input class="calc-form__input form__input--range" type="text" value="10 000">
-                                    </div>
-                                    <div class="calc-form__field">
-                                        <input class="calc-form__input" type="tel" placeholder="Ваш телефон"
-                                               onkeypress="maskPhone(event)" onpaste="onPastePhone(event)">
-                                    </div>
-                                    <button class="calc-form__button sbtn sbtn--red" type="submit">Получить деньги
-                                    </button>
-                                </div>
-                                <div class="calc-form__notice">Нажимая кнопку «Получить деньги», Вы даете согласие на
-                                    обработку
-                                    персональных данных
-                                </div>
-                            </form>
+                            <form-calc-app></form-calc-app>
                         </div>
                     </div>
                 </div>
@@ -713,7 +688,6 @@
                     <div class="order-min__info">
                         <div class="order-min__title section-title">Вступайте в ряды довольных клиентов!</div>
                         <button-modal class="order-min__button sbtn sbtn--red">Получить деньги</button-modal>
-{{--                        <div data-modal="main" class="order-min__button sbtn sbtn--red">Получить деньги</div>--}}
                     </div>
                     <div class="order-min__image">
                         <img src="{{ Vite::asset('resources/img/order-min.png')}}">
