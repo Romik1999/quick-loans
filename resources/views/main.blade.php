@@ -154,7 +154,6 @@
                     </div>
                 </div>
                 <button-modal class="button calc__button steps__button sbtn sbtn--red">Получить деньги</button-modal>
-{{--                <button data-modal="main" class="steps__button sbtn sbtn--red"></button>--}}
             </div>
         </section>
         <section class="how">
@@ -245,7 +244,6 @@
                             Для быстрого оформления, нажмите кнопку <b>“Оформить сейчас”</b>
                         </div>
                         <button-modal class="order-max__button sbtn sbtn--red">Оформить сейчас</button-modal>
-{{--                        <div data-modal="main" class="order-max__button sbtn sbtn--red">Оформить сейчас</div>--}}
                     </div>
                     <div class="order-max__image">
                         <img src="{{ Vite::asset('resources/img/order-max.png')}}" alt="order-max">
@@ -697,7 +695,6 @@
                                 fill="#CA0026"/>
                         </svg>
                     </div>
-{{--                    <div class="reviews__button sbtn sbtn--red" data-modal="reviews">Оставить отзыв</div>--}}
                     <button-modal-review class="reviews__button sbtn sbtn--red">Оставить отзыв</button-modal-review>
                     <div class="reviews__arrow reviews__arrow--next">
                         <svg width="118" height="16" viewBox="0 0 118 16" fill="none"
