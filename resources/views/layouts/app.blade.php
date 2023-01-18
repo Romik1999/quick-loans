@@ -20,6 +20,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
      @vite([
+                'resources/libs/swiper/swiper-bundle.min.css',
+                'resources/libs/swiper/swiper-bundle.min.js',
                 'resources/sass/style.scss',
                 'resources/js/app.js'
                 ])

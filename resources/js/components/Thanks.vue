@@ -1,11 +1,11 @@
 <template>
     <transition>
 
-        <div v-show="stateModalThanks" @click="modalThanksFalseTarget($event)" class="success success--active">
+        <div v-show="stateModalThanks" @click="modalThanksFalseTarget($event)" class="modal modal-success success--active">
             <div class="success__dialog">
-                <p @click="modalThanksFalse" class="success__close hover-text">Закрыть</p>
-                <p class="success__title">{{ stateModalThanksContent.title }}</p>
-                <p class="success__text">{{ stateModalThanksContent.text }}</p>
+                <p @click="modalThanksFalse" class="modal__close modal-success__close">Закрыть</p>
+                <p class="modal__title">{{ stateModalThanksContent.title }}</p>
+                <p class="modal__subtitle">{{ stateModalThanksContent.text }}</p>
             </div>
         </div>
 

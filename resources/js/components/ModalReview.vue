@@ -1,8 +1,9 @@
 <template>
     <transition>
-        <div v-show="stateModal" @click.prevent="modalFalseTarget($event)" class="modal modal-main modal--active">
+        <div v-show="stateModalReview" @click.prevent="modalFalseTarget($event)"
+             class="modal modal-reviews modal--active">
             <div class="modal__wrapper">
-                <div @click="modalFalse" class="modal__close modal-main__close">Закрыть</div>
+                <div @click="modalReviewFalse" class="modal__close modal-reviews__close">Закрыть</div>
                 <h3 class="title modal__title">Оставьте заявку</h3>
                 <p class="modal__subtitle">
                     Для получения заявок, оставьте номер телефона и ваше имя.
@@ -10,46 +11,48 @@
                 </p>
                 <div class="modal__form">
                     <form action="#" class="modal-form">
-                        <div class="modal-form__field">
-                            <input
-                                v-model="name"
-                                :class="{'is-invalid' : (v$.name.required.$invalid && v$.$dirty) || (v$.name.minLength.$invalid && v$.$dirty)}"
-                                :disabled="isDisabled"
-                                type="text"
-                                placeholder="Ваше имя"
-                                class="modal-form__input"
-                                id="nameModal"
-                            >
-
-                            <div class="invalid-feedback" v-if="v$.name.required.$invalid && v$.$dirty">Обязательное
-                                поле.
+                        <div class="modal-form__inner">
+                            <div class="modal-form__left">
+                                <label>
+                                    <input
+                                        type="file"
+                                        placeholder="Ваше фото"
+                                        class="modal-form__foto"
+                                        id="file"
+                                    >
+                                    <p>Добавить фото</p>
+                                </label>
                             </div>
-                            <div class="invalid-feedback" v-if="v$.name.minLength.$invalid && v$.$dirty">Минимальная
-                                длина
-                                {{v$.name.minLength.$params.min}}
+                            <div class="modal-form__right">
+                                <div class="modal-form__field">
+                                    <input
+                                        v-model="phone"
+                                        v-maska="'+7 (###) ###-####'"
+                                        :class="{'is-invalid' : (v$.phone.required.$invalid && v$.$dirty) || (v$.phone.minLength.$invalid && v$.$dirty)}"
+                                        :disabled="isDisabled"
+                                        type="tel"
+                                        placeholder="+7 (___) ___ - __ - __"
+                                        class="modal-form__input"
+                                        id="phoneModal"
+                                    >
+
+                                    <div class="invalid-feedback" v-if="v$.phone.required.$invalid && v$.$dirty">
+                                        Обязательное поле.
+                                    </div>
+                                    <div class="invalid-feedback" v-if="v$.phone.minLength.$invalid && v$.$dirty">
+                                        Неверный формат
+                                    </div>
+                                </div>
+                                <div class="modal-form__field">
+                                        <textarea
+                                            v-model="comment"
+                                            class="modal-form__textarea"
+                                            placeholder="Ваш комментарий"
+                                        >
+                                        </textarea>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="modal-form__field">
-                            <input
-                                v-model="phone"
-                                v-maska="'+7 (###) ###-####'"
-                                :class="{'is-invalid' : (v$.phone.required.$invalid && v$.$dirty) || (v$.phone.minLength.$invalid && v$.$dirty)}"
-                                :disabled="isDisabled"
-                                type="tel"
-                                placeholder="+7 (___) ___ - __ - __"
-                                class="modal-form__input"
-                                id="phoneModal"
-                            >
-
-                            <div class="invalid-feedback" v-if="v$.phone.required.$invalid && v$.$dirty">Обязательное
-                                поле.
-                            </div>
-                            <div class="invalid-feedback" v-if="v$.phone.minLength.$invalid && v$.$dirty">Неверный
-                                формат
-                            </div>
-                        </div>
-
                         <button @click.prevent="submitForm" type="submit" :disabled="isDisabled"
                                 class="modal-form__button sbtn sbtn--red">Получить деньги
                         </button>
@@ -69,27 +72,31 @@
         setup() {
             return {v$: useVuelidate()}
         },
-        name: "Modal",
+        name: "ModalReview",
         data() {
             return {
                 name: '',
                 phone: '',
                 polit: true,
+                comment: '',
+                file: '',
                 politDirty: false,
                 isDisabled: false,
                 counters: null
             }
         },
         computed: {
-            stateModal() {
-                return this.$store.getters['modal/stateModal']
+            stateModalReview() {
+                return this.$store.getters['modal/stateModalReview']
             }
         },
         methods: {
             clear() {
                 this.name = ''
                 this.phone = ''
+                this.comment = ''
                 this.politDirty = false
+                this.files = false
             },
             async submitForm() {
                 const isFormCorrect = await this.v$.$validate()
@@ -113,7 +120,7 @@
                         this.v$.$reset()
                         this.clear()
                         this.isDisabled = false
-                        this.$store.dispatch('modal/modalFalse')
+                        this.$store.dispatch('modal/modalReviewFalse')
                         this.$store.dispatch('modal/modalThanksTrue', {
                             title: 'Заявка отправлена',
                             text: 'Мы получили вашу заявку. Наш менеджер свяжется с вами.'
@@ -123,11 +130,11 @@
             },
             modalFalseTarget(e) {
                 if (e.target.classList.contains('modal')) {
-                    this.$store.dispatch('modal/modalFalse')
+                    this.$store.dispatch('modal/modalReviewFalse')
                 }
             },
-            modalFalse() {
-                this.$store.dispatch('modal/modalFalse')
+            modalReviewFalse() {
+                this.$store.dispatch('modal/modalReviewFalse')
             }
         },
         validations() {

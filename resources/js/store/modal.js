@@ -4,6 +4,7 @@ export default {
     namespaced: true,
     state() {
         return {
+            modalReview: false,
             modal: false,
             modalThanks: false,
             thanksQuiz: false,
@@ -34,6 +35,9 @@ export default {
         },
         stateModal(state) {
             return state.modal
+        },
+        stateModalReview(state) {
+            return state.modalReview
         },
         stateModalThanks(state) {
             return state.modalThanks
@@ -70,6 +74,14 @@ export default {
         MODAL_FALSE(state) {
             state.modal = false
         },
+
+        MODAL_REVIEW_TRUE(state) {
+            state.modalReview = true
+        },
+        MODAL_REVIEW_FALSE(state) {
+            state.modalReview = false
+        },
+
         MODAL_THANKS_TRUE(state) {
             state.modalThanks = true
         },
@@ -86,6 +98,16 @@ export default {
             commit('MODAL_FALSE')
             document.body.style = ''
         },
+
+        modalReviewTrue({ commit }) {
+            commit('MODAL_REVIEW_TRUE')
+            noJump()
+        },
+        modalReviewFalse({ commit }) {
+            commit('MODAL_REVIEW_FALSE')
+            document.body.style = ''
+        },
+
         modalThanksTrue({ state, commit }, modalThanksContent) {
             state.modalThanksContent.title = modalThanksContent.title
             state.modalThanksContent.text = modalThanksContent.text

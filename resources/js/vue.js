@@ -4,6 +4,8 @@ import Maska from "maska";
 import QuizApp from "./components/Quiz.vue";
 import LastStep from "./components/LastStep.vue";
 import ButtonModal from "./components/ButtonModal.vue";
+import ButtonModalReview from "./components/ButtonModalReview.vue";
+import ModalReviewsApp from "./components/ModalReview.vue";
 import ModalApp from "./components/Modal.vue";
 import ThanksApp from "./components/Thanks.vue";
 import ThanksQuiz from "./components/ThanksQuiz.vue";
@@ -15,7 +17,9 @@ const app = createApp({
         QuizApp,
         LastStep,
         ButtonModal,
+        ButtonModalReview,
         ModalApp,
+        ModalReviewsApp,
         ThanksApp,
         ThanksQuiz
     },

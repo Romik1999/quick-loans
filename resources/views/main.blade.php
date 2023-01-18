@@ -153,7 +153,8 @@
                         </div>
                     </div>
                 </div>
-                <button data-modal="main" class="steps__button sbtn sbtn--red">Получить деньги</button>
+                <button-modal class="button calc__button steps__button sbtn sbtn--red">Получить деньги</button-modal>
+{{--                <button data-modal="main" class="steps__button sbtn sbtn--red"></button>--}}
             </div>
         </section>
         <section class="how">
@@ -243,7 +244,8 @@
                         <div class="order-max__subtitle section-subtitle">
                             Для быстрого оформления, нажмите кнопку <b>“Оформить сейчас”</b>
                         </div>
-                        <div data-modal="main" class="order-max__button sbtn sbtn--red">Оформить сейчас</div>
+                        <button-modal class="order-max__button sbtn sbtn--red">Оформить сейчас</button-modal>
+{{--                        <div data-modal="main" class="order-max__button sbtn sbtn--red">Оформить сейчас</div>--}}
                     </div>
                     <div class="order-max__image">
                         <img src="{{ Vite::asset('resources/img/order-max.png')}}" alt="order-max">
@@ -695,7 +697,8 @@
                                 fill="#CA0026"/>
                         </svg>
                     </div>
-                    <div class="reviews__button sbtn sbtn--red" data-modal="reviews">Оставить отзыв</div>
+{{--                    <div class="reviews__button sbtn sbtn--red" data-modal="reviews">Оставить отзыв</div>--}}
+                    <button-modal-review class="reviews__button sbtn sbtn--red">Оставить отзыв</button-modal-review>
                     <div class="reviews__arrow reviews__arrow--next">
                         <svg width="118" height="16" viewBox="0 0 118 16" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -712,7 +715,8 @@
                 <div class="order-min__wrapper">
                     <div class="order-min__info">
                         <div class="order-min__title section-title">Вступайте в ряды довольных клиентов!</div>
-                        <div data-modal="main" class="order-min__button sbtn sbtn--red">Получить деньги</div>
+                        <button-modal class="order-min__button sbtn sbtn--red">Получить деньги</button-modal>
+{{--                        <div data-modal="main" class="order-min__button sbtn sbtn--red">Получить деньги</div>--}}
                     </div>
                     <div class="order-min__image">
                         <img src="{{ Vite::asset('resources/img/order-min.png')}}">
@@ -771,6 +775,7 @@
     </footer>
 
     <modal-app></modal-app>
+    <modal-reviews-app></modal-reviews-app>
     <thanks-app></thanks-app>
 
 @endsection
