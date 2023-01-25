@@ -16,21 +16,20 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>Одобрение кредита за 1 день</title>
+    <link
+        rel="stylesheet"
+        href="js/swiper/swiper-bundle.min.css"
+    />
 
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="js/swiper/swiper-bundle.min.js"></script>
 
      @vite([
-                'resources/libs/swiper/swiper-bundle.min.css',
-                'resources/libs/swiper/swiper-bundle.min.js',
+{{--                'resources/libs/swiper/swiper-bundle.min.css',--}}
+{{--                'resources/libs/swiper/swiper-bundle.min.js',--}}
                 'resources/sass/style.scss',
+{{--                'resources/js/assets/script.js',--}}
                 'resources/js/app.js'
                 ])
-
-    @if(Route::currentRouteName() == 'home')
-        @vite([
-       'resources/js/assets/script.js'
-       ])
-    @endif
 
 </head>
 <body>
@@ -42,7 +41,7 @@
 @include('layouts._counters', [
         'counters' => [
             'facebook' =>[],
-            'yandexMetrika' => [91432864],
+            'yandexMetrika' => [92178518],
             'mailRu' => [],
             'google' => []
             ]

@@ -5,11 +5,12 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/sass/style.scss',
-                    'resources/js/app.js',
-                    'resources/js/assets/script.js',
-                    'resources/libs/swiper/swiper-bundle.min.css',
-                    'resources/libs/swiper/swiper-bundle.min.js'
+            input: [
+                // 'resources/libs/swiper/swiper-bundle.min.css',
+                // 'resources/libs/swiper/swiper-bundle.min.js',
+                // 'resources/js/assets/script.js',
+                'resources/sass/style.scss',
+                'resources/js/app.js'
             ],
             refresh: true,
         }),

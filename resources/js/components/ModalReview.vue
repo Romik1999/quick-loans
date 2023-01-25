@@ -35,11 +35,31 @@
                                         id="nameModal"
                                     >
 
-                                    <div class="invalid-feedback" v-if="v$.phone.required.$invalid && v$.$dirty">
-                                        Обязательное поле.
+                                    <div class="invalid-feedback" v-if="v$.name.required.$invalid && v$.$dirty">Обязательное
+                                        поле.
                                     </div>
-                                    <div class="invalid-feedback" v-if="v$.phone.minLength.$invalid && v$.$dirty">
-                                        Неверный формат
+                                    <div class="invalid-feedback" v-if="v$.name.minLength.$invalid && v$.$dirty">Минимальная
+                                        длина
+                                        {{v$.name.minLength.$params.min}}
+                                    </div>
+                                </div>
+                                <div class="modal-form__field">
+                                    <input
+                                        v-model="phone"
+                                        v-maska="'+7 (###) ###-####'"
+                                        :class="{'is-invalid' : (v$.phone.required.$invalid && v$.$dirty) || (v$.phone.minLength.$invalid && v$.$dirty)}"
+                                        :disabled="isDisabled"
+                                        type="tel"
+                                        placeholder="+7 (___) ___ - __ - __"
+                                        class="modal-form__input"
+                                        id="phoneModal"
+                                    >
+
+                                    <div class="invalid-feedback" v-if="v$.phone.required.$invalid && v$.$dirty">Обязательное
+                                        поле.
+                                    </div>
+                                    <div class="invalid-feedback" v-if="v$.phone.minLength.$invalid && v$.$dirty">Неверный
+                                        формат
                                     </div>
                                 </div>
                                 <div class="modal-form__field">
@@ -75,10 +95,10 @@
         data() {
             return {
                 name: '',
-                phone: '',
                 polit: true,
+                phone: '',
                 comment: '',
-                file: '',
+                // file: '',
                 politDirty: false,
                 isDisabled: false,
                 counters: null
@@ -95,7 +115,7 @@
                 this.phone = ''
                 this.comment = ''
                 this.politDirty = false
-                this.files = false
+                // this.files = false
             },
             async submitForm() {
                 const isFormCorrect = await this.v$.$validate()
@@ -110,6 +130,7 @@
                 await axios.post('api/v1/lead.add', {
                     name: this.name,
                     phone: this.phone.replace(/\D/g, ""),
+                    comment: this.comment,
                     host: window.location.host,
                     referrer: document.referrer,
                     url_query_string: sessionStorage.getItem('urlQueryString'),

@@ -1,8 +1,8 @@
 <template>
     <transition>
 
-        <div v-show="stateModalThanks" @click="modalThanksFalseTarget($event)" class="modal modal-success success--active">
-            <div class="success__dialog">
+        <div v-show="stateModalThanks" @click="modalThanksFalseTarget($event)" class="modal modal-success modal--active">
+            <div class="modal__wrapper">
                 <p @click="modalThanksFalse" class="modal__close modal-success__close">Закрыть</p>
                 <p class="modal__title">{{ stateModalThanksContent.title }}</p>
                 <p class="modal__subtitle">{{ stateModalThanksContent.text }}</p>

@@ -25,7 +25,7 @@ Route::prefix('v1')->name('v1.')->group(function(){
 
     Route::get('counters', function (){
         return response()->json([
-            'ym'=>91432864,
+            'ym'=>92178518,
             'fbq'=>'',
             //'mailRu' => ['id' => 3268254, 'goal' => 'contact']
         ],200);

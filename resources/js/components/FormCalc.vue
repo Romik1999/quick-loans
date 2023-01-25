@@ -94,7 +94,8 @@
                         this.v$.$reset()
                         this.clear()
                         this.isDisabled = false
-                        this.$store.dispatch('modal/thanksTrue', {
+                        this.$store.dispatch('modal/modalFalse')
+                        this.$store.dispatch('modal/modalThanksTrue', {
                             title: 'Заявка отправлена',
                             text: 'Мы получили вашу заявку. Наш менеджер свяжется с вами.'
                         })
