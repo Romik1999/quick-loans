@@ -6,6 +6,7 @@
                          <span class="range__handler"></span>
                     </span>
                 <input
+                    ref="amount"
                     class="range__input"
                     type="range"
                     step="1000"
@@ -64,7 +65,6 @@
             return {
                 name: '',
                 phone: '',
-                amount: '',
                 isDisabled: false,
                 counters: null
             }
@@ -74,7 +74,6 @@
             clear() {
                 this.name = ''
                 this.phone = ''
-                this.amount = ''
             },
             async submitForm() {
                 const isFormCorrect = await this.v$.$validate()
@@ -83,7 +82,8 @@
                 // actually submit form
                 this.isDisabled = true
                 await axios.post('api/v1/lead.add', {
-                    amount: this.amount,
+                    name: 'Новый пользователь',
+                    amount: this.$refs.amount.value,
                     phone: this.phone.replace(/\D/g, ""),
                     host: window.location.host,
                     referrer: document.referrer,

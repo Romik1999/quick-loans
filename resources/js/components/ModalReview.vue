@@ -11,29 +11,28 @@
                 </p>
                 <div class="modal__form">
                     <form action="#" class="modal-form">
-                        <div class="modal-form__inner">
-                            <div class="modal-form__left">
-                                <label>
-                                    <input
-                                        type="file"
-                                        placeholder="Ваше фото"
-                                        class="modal-form__foto"
-                                        id="file"
-                                    >
-                                    <p>Добавить фото</p>
-                                </label>
-                            </div>
+<!--                        <div class="modal-form__inner">-->
+<!--                            <div class="modal-form__left">-->
+<!--                                <label>-->
+<!--                                    <input-->
+<!--                                        type="file"-->
+<!--                                        placeholder="Ваше фото"-->
+<!--                                        class="modal-form__foto"-->
+<!--                                        id="file"-->
+<!--                                    >-->
+<!--                                    <p>Добавить фото</p>-->
+<!--                                </label>-->
+<!--                            </div>-->
                             <div class="modal-form__right">
                                 <div class="modal-form__field">
                                     <input
-                                        v-model="phone"
-                                        v-maska="'+7 (###) ###-####'"
-                                        :class="{'is-invalid' : (v$.phone.required.$invalid && v$.$dirty) || (v$.phone.minLength.$invalid && v$.$dirty)}"
+                                        v-model="name"
+                                        :class="{'is-invalid' : (v$.name.required.$invalid && v$.$dirty) || (v$.name.minLength.$invalid && v$.$dirty)}"
                                         :disabled="isDisabled"
-                                        type="tel"
-                                        placeholder="+7 (___) ___ - __ - __"
+                                        type="text"
+                                        placeholder="Ваше имя"
                                         class="modal-form__input"
-                                        id="phoneModal"
+                                        id="nameModal"
                                     >
 
                                     <div class="invalid-feedback" v-if="v$.phone.required.$invalid && v$.$dirty">
@@ -52,7 +51,7 @@
                                         </textarea>
                                 </div>
                             </div>
-                        </div>
+<!--                        </div>-->
                         <button @click.prevent="submitForm" type="submit" :disabled="isDisabled"
                                 class="modal-form__button sbtn sbtn--red">Получить деньги
                         </button>
