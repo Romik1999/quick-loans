@@ -1,16 +1,21 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/sass/style.scss', 'resources/js/app.js', 'resources/js/assets/script.js'],
+            input: ['resources/sass/style.scss',
+                    'resources/js/app.js',
+                    'resources/js/assets/script.js',
+                    'resources/libs/swiper/swiper-bundle.min.css',
+                    'resources/libs/swiper/swiper-bundle.min.js'
+            ],
             refresh: true,
         }),
         vue({
             template: {
-                transformAssetUrls:{
+                transformAssetUrls: {
                     base: null,
                     includeAbsolute: false
                 }
